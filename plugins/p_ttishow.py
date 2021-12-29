@@ -38,7 +38,7 @@ async def save_group(bot, message):
             return
         buttons = [[
             InlineKeyboardButton('ℹ️ 𝖧𝖤𝖫𝖯', url=f"https://t.me/{temp.U_NAME}?start=help"),
-            InlineKeyboardButton('📢 𝖴𝖯𝖣𝖠𝖳𝖤𝖲', url='https://t.me/SakuraBotUpdates')
+            InlineKeyboardButton('📢 𝖴𝖯𝖣𝖠𝖳𝖤𝖲', url='https://t.me/cv_Updatez')
         ]]
         reply_markup=InlineKeyboardMarkup(buttons)
         await message.reply_text(
@@ -65,7 +65,7 @@ async def leave_a_chat(bot, message):
         chat = chat
     try:
         buttons = [[
-            InlineKeyboardButton('Support', url=f'https://t.me/SakuraBotUSupport')
+            InlineKeyboardButton('Support', url=f'https://t.me/cv_group1')
         ]]
         reply_markup=InlineKeyboardMarkup(buttons)
         await bot.send_message(
@@ -103,7 +103,7 @@ async def disable_chat(bot, message):
     await message.reply('Chat Succesfully Disabled')
     try:
         buttons = [[
-            InlineKeyboardButton('Support', url=f'https://t.me/SakuraBotSupport')
+            InlineKeyboardButton('Support', url=f'https://t.me/cv_group1')
         ]]
         reply_markup=InlineKeyboardMarkup(buttons)
         await bot.send_message(
