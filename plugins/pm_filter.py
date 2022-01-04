@@ -771,14 +771,14 @@ async def auto_filter(client, message):
             )
         imdb=await get_poster(search)
         if imdb and imdb.get('poster'):
-            await message.reply_photo(photo=imdb.get('poster'), caption=f"🎥 Title: <a href={imdb['url']}>{imdb.get('title')}</a> [{imdb.get('year')}]
+            await message.reply_photo(photo=imdb.get('poster'), caption=f"🎥 Title: <a href={imdb['url']}>{imdb.get('title')}</a> {imdb.get('year')}
 
 🎭 Genre: #{imdb.get('genres')}
 📆 Release info: <a href={imdb['url']}/releaseinfo>{imdb.get('year')}
 ⭐ Rating: {imdb.get('rating')} / 10 (based on {votes} user ratings.)
 🎙 Language: #{imdb.get('language')}", reply_markup=InlineKeyboardMarkup(btn))
         elif imdb:
-            await message.reply_text(f"🎥 Title: <a href={imdb['url']}>{imdb.get('title')}</a> [{imdb.get('year')}]
+            await message.reply_text(f"🎥 Title: <a href={imdb['url']}>{imdb.get('title')}</a> {imdb.get('year')}
 
 🎭 Genre: #{imdb.get('genres')}
 📆 Release info: <a href={imdb['url']}/releaseinfo>{imdb.get('year')}
