@@ -771,19 +771,19 @@ async def auto_filter(client, message):
             )
         imdb=await get_poster(search)
         if imdb and imdb.get('poster'):
-            await message.reply_photo(photo=imdb.get('poster'), caption=f"""🎥 **Title**: <a href={url}>{title}</a> [{year}]
+            await message.reply_photo(photo=imdb.get('poster'), caption=f"""🎥 Title: <a href={imdb['url']}>{imdb.get('title')}</a> [{imdb.get('year')}]
 
-🎭 **Genre**: #{genres}
-📆 **Release info**: {release_date}
-⭐ **Rating**: <a href={url}/ratings>{rating}</a> / 10 (based on {votes} user ratings.)
-🎙 **Language**: #<code>{languages}</code>""", reply_markup=InlineKeyboardMarkup(btn))
+🎭 Genre: #{imdb.get('genres')}
+📆 Release info: <a href={imdb['url']}/releaseinfo>{imdb.get('year')}
+⭐ Rating: {imdb.get('rating')} / 10 (based on {votes} user ratings.)
+🎙 Language: #{imdb.get('language')}""", reply_markup=InlineKeyboardMarkup(btn))
         elif imdb:
-            await message.reply_text(f"""🎥 **Title**: <a href={url}>{title}</a> [{year}]
+            await message.reply_text(f"""🎥 Title: <a href={imdb['url']}>{imdb.get('title')}</a> [{imdb.get('year')}]
 
-🎭 **Genre**: #{genres}
-📆 **Release info**: {release_date}
-⭐ **Rating**: <a href={url}/ratings>{rating}</a> / 10 (based on {votes} user ratings.)
-🎙 **Language**: #<code>{languages}</code>""", reply_markup=InlineKeyboardMarkup(btn))
+🎭 Genre: #{imdb.get('genres')}
+📆 Release info: <a href={imdb['url']}/releaseinfo>{imdb.get('year')}
+⭐ Rating: {imdb.get('rating')} / 10 (based on {votes} user ratings.)
+🎙 Language: #{imdb.get('language')}""", reply_markup=InlineKeyboardMarkup(btn))
         else:
             await message.reply_text(f"<b>Here is What I Found In My Database For Your Query {search} ‌‎ </b>", reply_markup=InlineKeyboardMarkup(btn))
 
