@@ -771,9 +771,9 @@ async def auto_filter(client, message):
             )
         imdb=await get_poster(search)
         if imdb and imdb.get('poster'):
-            await message.reply_photo(photo=imdb.get('poster'), caption=f"**🎥 Title: <a href={imdb['url']}>{imdb.get('title')}</a>** {imdb.get('year')}\n\n**🎭 Genre:** <code>#{imdb.get('genres')}</code>\n**📆 Release info:** <a href={imdb['url']}/releaseinfo>{imdb.get('year')}\n**⭐ Rating:** <i>{imdb.get('rating')}/10 (based on {imdb.get('votes')} user ratings.)</i>\n**🎙 Language:** <code>#{imdb.get('languages')}</code>", reply_markup=InlineKeyboardMarkup(btn))
+            await message.reply_photo(photo=imdb.get('poster'), caption=f"**🎥 Title: <a href={imdb['url']}>{imdb.get('title')}</a>** [<i>{imdb.get('year')}</i>]\n\n**🎭 Genre:** <code>#{imdb.get('genres')}</code>\n**📆 Release info:** <i><a href={imdb['url']}/releaseinfo>{imdb.get('year')}</i>\n**⭐ Rating:** <i>{imdb.get('rating')}/10 (based on {imdb.get('votes')} user ratings.)</i>\n**🎙 Language:** <code>#{imdb.get('languages')}</code>", reply_markup=InlineKeyboardMarkup(btn))
         elif imdb:
-            await message.reply_text(f"**🎥 Title: <a href={imdb['url']}>{imdb.get('title')}</a>** [{imdb.get('year')}]\n\n**🎭 Genre:** <code>#{imdb.get('genres')}</code>\n**📆 Release info**: <a href={imdb['url']}/releaseinfo>{imdb.get('year')}\n**⭐ Rating:** <i>{imdb.get('rating')}/10 (based on {imdb.get('votes')} user ratings.)</i>\n**🎙 Language:** <code>#{imdb.get('languages')}</code>", reply_markup=InlineKeyboardMarkup(btn))
+            await message.reply_text(f"**🎥 Title: <a href={imdb['url']}>{imdb.get('title')}</a>** [<i>{imdb.get('year')}</i>]\n\n**🎭 Genre:** <code>#{imdb.get('genres')}</code>\n**📆 Release info**: <i><a href={imdb['url']}/releaseinfo>{imdb.get('year')}</i>\n**⭐ Rating:** <i>{imdb.get('rating')}/10 (based on {imdb.get('votes')} user ratings.)</i>\n**🎙 Language:** <code>#{imdb.get('languages')}</code>", reply_markup=InlineKeyboardMarkup(btn))
         else:
             await message.reply_text(f"<b>Here is What I Found In My Database For Your Query {search} ‌‎ </b>", reply_markup=InlineKeyboardMarkup(btn))
 
